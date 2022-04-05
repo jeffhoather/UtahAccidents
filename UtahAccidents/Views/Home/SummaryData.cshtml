@@ -1,0 +1,65 @@
+﻿@{
+    ViewData["Title"] = "Summary Data";
+}
+
+@model AccidentsViewModel
+
+
+<h1>Summary Data Page</h1>
+
+
+<table class="table table-bordered table-striped">
+
+    <thead class="bold">
+        <tr>
+            <td>Crash ID</td>
+            <td>Date&Time</td>
+            <td>Route</td>
+            <td>Milepoint</td>
+            <td>Latitutde</td>
+            <td>Longitude</td>
+            <td>Main Road</td>
+            <td>City</td>
+            <td>County</td>
+            <td>Crash Severity (1-5)</td>
+            <td>Work Zone Related?</td>
+            <td>Pedestrian Involved?</td>
+            <td>Bicyclist Involved?</td>
+            <td>Motorcycle Involved?</td>
+            <td>Improper Restraint?</td>
+            <td>Unrestrained?</td>
+            <td>DUI?</td>
+            <td>Intersection Related?</td>
+            <td>Wild Animal?</td>
+            <td>Domestic Animal?</td>
+            <td>Overturn/Rollover?</td>
+            <td>Commercial Vehicle Involved?</td>
+            <td>Teenager Driver Involved?</td>
+            <td>Older Driver Involved?</td>
+            <td>Night/Dark Conditions?</td>
+            <td>Single Vehicle?</td>
+            <td>Distracted Driving?</td>
+            <td>Drowsy Driving?</td>
+            <td>Roadway Departure?</td>
+            
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (Accident a in Model.Accidents)
+        {
+            <partial name="AccidentSummary" model="a" />
+        }   
+
+    </tbody>
+
+</table>
+
+
+<div page-blah="@Model.PageInfo" page-action="SummaryData" page-class="btn"
+     page-classes-enabled="true"
+     page-class-normal="btn-outline-dark" page-class-selected="btn-primary"></div>
+
+
+
+

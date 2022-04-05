@@ -1,0 +1,52 @@
+﻿@{
+}
+
+@model Accident
+<!-- Optional Filtering Section
+<div>
+    <form method="post">
+        <label asp-for="COUNTY_NAME"></label>
+        <select asp-for="COUNTY_NAME">
+            @foreach (var c in Model.COUNTY_NAME)
+            {
+                <option value="@Model.COUNTY_NAME">@Model.COUNTY_NAME</option>
+            }
+        </select>
+    </form>
+</div>
+-->
+
+
+<!-- Data Summary Section -->
+
+<tr>
+    <td>@Model.CRASH_ID</td>
+    <td>@Model.CRASH_DATETIME</td>
+    <td>@Model.ROUTE</td>
+    <td>@Model.MILEPOINT</td>
+    <td>@Model.LAT_UTM_Y</td>
+    <td>@Model.LONG_UTM_X</td>
+    <td>@Model.MAIN_ROAD_NAME</td>
+    <td>@Model.CITY</td>
+    <td>@Model.COUNTY_NAME</td>
+    <td>@Model.CRASH_SEVERITY_ID</td>
+    <td>@Model.WORK_ZONE_RELATED</td>
+    <td>@Model.PEDESTRIAN_INVOLVED</td>
+    <td>@Model.BICYCLIST_INVOLVED</td>
+    <td>@Model.MOTORCYCLE_INVOLVED</td>
+    <td>@Model.IMPROPER_RESTRAINT</td>
+    <td>@Model.UNRESTRAINED</td>
+    <td>@Model.DUI</td>
+    <td>@Model.INTERSECTION_RELATED</td>
+    <td>@Model.WILD_ANIMAL_RELATED</td>
+    <td>@Model.DOMESTIC_ANIMAL_RELATED</td>
+    <td>@Model.OVERTURN_ROLLOVER</td>
+    <td>@Model.COMMERCIAL_MOTOR_VEH_INVOLVED</td>
+    <td>@Model.TEENAGE_DRIVER_INVOLVED</td>
+    <td>@Model.OLDER_DRIVER_INVOLVED</td>
+    <td>@Model.NIGHT_DARK_CONDITION</td>
+    <td>@Model.SINGLE_VEHICLE</td>
+    <td>@Model.DISTRACTED_DRIVING</td>
+    <td>@Model.DROWSY_DRIVING</td>
+    <td>@Model.ROADWAY_DEPARTURE</td>
+</tr>
