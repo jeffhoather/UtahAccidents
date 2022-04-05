@@ -5,13 +5,12 @@
 @model AccidentsViewModel
 
 
-<h1>Summary Data Page</h1>
-
+<h1>Summary Data</h1>
 
 <table class="table table-bordered table-striped">
 
-    <thead class="bold">
-        <tr>
+    <thead class="font-weight-bold">
+        <tr class="text-center fw-bold align-items-md-center">
             <td>Crash ID</td>
             <td>Date&Time</td>
             <td>Route</td>
@@ -41,7 +40,7 @@
             <td>Distracted Driving?</td>
             <td>Drowsy Driving?</td>
             <td>Roadway Departure?</td>
-            
+
         </tr>
     </thead>
 
@@ -49,7 +48,7 @@
         @foreach (Accident a in Model.Accidents)
         {
             <partial name="AccidentSummary" model="a" />
-        }   
+        }
 
     </tbody>
 
@@ -57,8 +56,8 @@
 
 
 <div page-blah="@Model.PageInfo" page-action="SummaryData" page-class="btn"
-     page-classes-enabled="true"
-     page-class-normal="btn-outline-dark" page-class-selected="btn-primary"></div>
+        page-classes-enabled="true"
+        page-class-normal="btn-outline-dark" page-class-selected="btn-primary"></div>
 
 
 
