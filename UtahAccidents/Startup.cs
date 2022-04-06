@@ -47,6 +47,7 @@ namespace UtahAccidents
             {
                 app.UseDeveloperExceptionPage();
             }
+            app.UseCookiePolicy();
 
             app.UseStaticFiles();
 

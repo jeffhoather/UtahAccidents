@@ -53,5 +53,16 @@ namespace UtahAccidents.Controllers
             return View();
         }
 
+        public IActionResult Calculator()
+        {
+
+            return View();
+        }
+        public IActionResult Insights()
+        {
+
+            return View();
+        }
+
     }
 }

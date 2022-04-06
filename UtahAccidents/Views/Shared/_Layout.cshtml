@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="/lib/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/lib/css/bootstrap.css" />
     <link rel="stylesheet" href="~/css/site.css" />
+
 </head>
 <body>
     <header style="background-color:darkseagreen">
@@ -25,6 +26,12 @@
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="SummaryData">All Data</a>
                         </li>
                         <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Calculator">Predictor</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Insights">Insights</a>
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
                         </li>
                     </ul>
@@ -33,6 +40,7 @@
         </nav>
     </header>
     <div class="container">
+        <partial name="_CookieConsentPartial" />
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
