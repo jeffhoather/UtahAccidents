@@ -1,21 +1,26 @@
 ﻿@page "/admin"
 
+@using Microsoft.AspNetCore.Authorization
+@attribute [Authorize]
 
 @model UtahAccidents.Pages.Admin.IndexModel
+
 @{
 }
-
 
 <!DOCTYPE html>
 
 <html>
 
+<head>
     <title>Utah Accidents Admin</title>
     <link href="~/lib/css/bootstrap.min.css" rel="stylesheet" />
     <base href="/" />
+</head>
 
+<body>
+    <component type="typeof(UtahAccidents.Pages.Admin.Routed)" render-mode="Server" />
+    <script src="/_framework/blazor.server.js"></script>
+</body>
 
-    <body>
-        <p>Testing</p>
-    </body>
 </html>
