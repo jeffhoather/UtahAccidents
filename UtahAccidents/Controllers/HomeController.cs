@@ -47,5 +47,11 @@ namespace UtahAccidents.Controllers
 
             return View(x);
         }
+        public IActionResult Privacy()
+        {
+
+            return View();
+        }
+
     }
 }
