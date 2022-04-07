@@ -22,6 +22,9 @@ namespace UtahAccidents.Models
         public string CITY { get; set; }
         public string COUNTY_NAME { get; set; }
         public int CRASH_SEVERITY_ID { get; set; }
+
+        [Required]
+        [StringLength(5, ErrorMessage = "Please Select True or False")]
         public string WORK_ZONE_RELATED { get; set; }
         public string PEDESTRIAN_INVOLVED { get; set; }
         public string BICYCLIST_INVOLVED { get; set; }

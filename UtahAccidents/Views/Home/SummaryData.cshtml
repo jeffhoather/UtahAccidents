@@ -2,12 +2,28 @@
     ViewData["Title"] = "Summary Data";
 }
 
-@model AccidentsViewModel
+@model IndexViewModel
 
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 
 <h1>2016, 2017, 2019 Utah Vehicle Accident Data</h1>
 
+<div>
+    <h3>Filter the Results</h3>
 
+    <h4>Filter by County/City</h4>
+
+    <h4>Filter by Severity</h4>
+
+    <h4>Filter by Conditions</h4>
+
+    @*<form>
+            <label asp-for="">Crash ID</label>
+            <option>
+
+            </option>
+        </form>*@
+</div>
 
 <table class="table table-bordered table-striped">
 
@@ -57,10 +73,42 @@
 </table>
 
 
-<div page-blah="@Model.PageInfo" page-action="SummaryData" page-class="btn"
-        page-classes-enabled="true"
-        page-class-normal="btn-outline-dark" page-class-selected="btn-primary"></div>
+@*<div page-blah="@Model.PageInfo" page-action="SummaryData" page-class="btn"
+    page-classes-enabled="true"
+    page-class-normal="btn-outline-dark" page-class-selected="btn-primary"></div>*@
 
+<div class="container">
+    <div class="col-md-8 col-md-offset-2">
+        @if (Model.Pager.EndPage > 1)
+        {
+            <ul class="pagination">
+                @if (Model.Pager.CurrentPage > 1)
+                {
+                    <li>
+                        <a href="~/Home/SummaryData">First</a>
+                    </li>
+                    <li>
+                        <a href="~/Home/SummaryData?page=@(Model.Pager.CurrentPage - 1)">Previous</a>
+                    </li>
+                }
 
+                @for (var pagething = Model.Pager.StartPage; pagething <= Model.Pager.EndPage; pagething++)
+                {
+                    <li class="@(pagething == Model.Pager.CurrentPage ? "active" : "")">
+                        <a href="~/Home/SummaryData?page=@(pagething)"> @(pagething) </a>
+                    </li>
+                }
 
-
+                @if (Model.Pager.CurrentPage < Model.Pager.TotalPages)
+                {
+                    <li>
+                        <a href="~/Home/SummaryData?page=@(Model.Pager.CurrentPage + 1)">Next</a>
+                    </li>
+                    <li>
+                        <a href="~/Home/SummaryData?page=@(Model.Pager.TotalPages)">Last</a>
+                    </li>
+                }
+            </ul>
+        }
+    </div>
+</div>

@@ -6,11 +6,11 @@
 <NavLink class="btn btn-primary" href="/admin/accidents/create">Create</NavLink>
 
 
-<div>
-    <label class="text-bold">Search Crash by ID:</label>
-    @*<input value="@x" />
-    <NavLink class="btn btn-primary btn-sm" href="@GetDetailsUrl(x)">Test Routing</NavLink>*@
-</div>
+@*<EditForm Model="@a" OnValidSubmit="Details">
+    <label>Crash ID:</label>
+    <InputNumber @bind-Value="a.CRASH_ID"></InputNumber>
+
+</EditForm>*@
 
 
 <table class="table table-sm table-striped table-bordered">
@@ -71,6 +71,8 @@
 
 @code {
 
+    public Accident a { get; set; } = new Accident();
+
     public Accident accident { get; set; }
 
     public IAccidentsRepository repo => Service;
@@ -88,7 +90,6 @@
     }
 
     int i = 0;
-    long x;
 
     public string GetDetailsUrl(long id) => $"/admin/accidents/details/{id}";
     public string GetEditUrl(long id) => $"/admin/accidents/edit/{id}";

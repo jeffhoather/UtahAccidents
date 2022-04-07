@@ -14,10 +14,16 @@
 
     <DataAnnotationsValidator></DataAnnotationsValidator>
 
-    
+
+    @*<div class="form-group"> -> To make Crash ID a field that can be entered, and we just give it a number limit
+        <label>Milepoint</label>
+        <ValidationMessage For="@(() => a.MILEPOINT)"></ValidationMessage>
+        <InputNumber class="form-control" @bind-Value="a.MILEPOINT"></InputNumber>
+    </div>*@
+
     <div class="form-group">
         <label>Crash ID</label>
-        <input class="form-control" disabled value="@a.CRASH_ID"/>
+        <input class="form-control" disabled value="@a.CRASH_ID" />
     </div>
 
     <div class="form-group">
@@ -88,114 +94,186 @@
     <div class="form-group">
         <label>Pedestrian Involved</label>
         <ValidationMessage For="@(() => a.PEDESTRIAN_INVOLVED)"></ValidationMessage>
-        <InputText class="form-control" @bind-Value="a.PEDESTRIAN_INVOLVED"></InputText>
+        <select class="form-control selectpicker" @bind="a.PEDESTRIAN_INVOLVED">
+            <option>--Select--</option>
+            <option>TRUE</option>
+            <option>FALSE</option>
+        </select>
     </div>
 
     <div class="form-group">
         <label>Bicyclist Involved</label>
         <ValidationMessage For="@(() => a.BICYCLIST_INVOLVED)"></ValidationMessage>
-        <InputText class="form-control" @bind-Value="a.BICYCLIST_INVOLVED"></InputText>
+        <select class="form-control selectpicker" @bind="a.BICYCLIST_INVOLVED">
+            <option>--Select--</option>
+            <option>TRUE</option>
+            <option>FALSE</option>
+        </select>
     </div>
 
     <div class="form-group">
         <label>Motorcyclist Involved</label>
         <ValidationMessage For="@(() => a.MOTORCYCLE_INVOLVED)"></ValidationMessage>
-        <InputText class="form-control" @bind-Value="a.MOTORCYCLE_INVOLVED"></InputText>
+        <select class="form-control selectpicker" @bind="a.MOTORCYCLE_INVOLVED">
+            <option>--Select--</option>
+            <option>TRUE</option>
+            <option>FALSE</option>
+        </select>
     </div>
 
     <div class="form-group">
         <label>Improper Restraint</label>
         <ValidationMessage For="@(() => a.IMPROPER_RESTRAINT)"></ValidationMessage>
-        <InputText class="form-control" @bind-Value="a.IMPROPER_RESTRAINT"></InputText>
+        <select class="form-control selectpicker" @bind="a.IMPROPER_RESTRAINT">
+            <option>--Select--</option>
+            <option>TRUE</option>
+            <option>FALSE</option>
+        </select>
     </div>
 
     <div class="form-group">
         <label>Unrestrained</label>
         <ValidationMessage For="@(() => a.UNRESTRAINED)"></ValidationMessage>
-        <InputText class="form-control" @bind-Value="a.UNRESTRAINED"></InputText>
+        <select class="form-control selectpicker" @bind="a.UNRESTRAINED">
+            <option>--Select--</option>
+            <option>TRUE</option>
+            <option>FALSE</option>
+        </select>
     </div>
 
     <div class="form-group">
         <label>DUI</label>
         <ValidationMessage For="@(() => a.DUI)"></ValidationMessage>
-        <InputText class="form-control" @bind-Value="a.DUI"></InputText>
+        <select class="form-control selectpicker" @bind="a.DUI">
+            <option>--Select--</option>
+            <option>TRUE</option>
+            <option>FALSE</option>
+        </select>
     </div>
 
     <div class="form-group">
         <label>Intersection Related</label>
         <ValidationMessage For="@(() => a.INTERSECTION_RELATED)"></ValidationMessage>
-        <InputText class="form-control" @bind-Value="a.INTERSECTION_RELATED"></InputText>
+        <select class="form-control selectpicker" @bind="a.INTERSECTION_RELATED">
+            <option>--Select--</option>
+            <option>TRUE</option>
+            <option>FALSE</option>
+        </select>
     </div>
 
     <div class="form-group">
         <label>Wild Animal Related</label>
         <ValidationMessage For="@(() => a.WILD_ANIMAL_RELATED)"></ValidationMessage>
-        <InputText class="form-control" @bind-Value="a.WILD_ANIMAL_RELATED"></InputText>
+        <select class="form-control selectpicker" @bind="a.WILD_ANIMAL_RELATED">
+            <option>--Select--</option>
+            <option>TRUE</option>
+            <option>FALSE</option>
+        </select>
     </div>
 
     <div class="form-group">
         <label>Domestic Animal Related</label>
         <ValidationMessage For="@(() => a.DOMESTIC_ANIMAL_RELATED)"></ValidationMessage>
-        <InputText class="form-control" @bind-Value="a.DOMESTIC_ANIMAL_RELATED"></InputText>
+        <select class="form-control selectpicker" @bind="a.DOMESTIC_ANIMAL_RELATED">
+            <option>--Select--</option>
+            <option>TRUE</option>
+            <option>FALSE</option>
+        </select>
     </div>
 
     <div class="form-group">
         <label>Overturn/Rollover</label>
         <ValidationMessage For="@(() => a.OVERTURN_ROLLOVER)"></ValidationMessage>
-        <InputText class="form-control" @bind-Value="a.OVERTURN_ROLLOVER"></InputText>
+        <select class="form-control selectpicker" @bind="a.OVERTURN_ROLLOVER">
+            <option>--Select--</option>
+            <option>TRUE</option>
+            <option>FALSE</option>
+        </select>
     </div>
 
     <div class="form-group">
         <label>Commercial Vehicle Involved</label>
         <ValidationMessage For="@(() => a.COMMERCIAL_MOTOR_VEH_INVOLVED)"></ValidationMessage>
-        <InputText class="form-control" @bind-Value="a.COMMERCIAL_MOTOR_VEH_INVOLVED"></InputText>
+        <select class="form-control selectpicker" @bind="a.COMMERCIAL_MOTOR_VEH_INVOLVED">
+            <option>--Select--</option>
+            <option>TRUE</option>
+            <option>FALSE</option>
+        </select>
     </div>
 
     <div class="form-group">
         <label>Teenage Driver Involved</label>
         <ValidationMessage For="@(() => a.TEENAGE_DRIVER_INVOLVED)"></ValidationMessage>
-        <InputText class="form-control" @bind-Value="a.TEENAGE_DRIVER_INVOLVED"></InputText>
+        <select class="form-control selectpicker" @bind="a.TEENAGE_DRIVER_INVOLVED">
+            <option>--Select--</option>
+            <option>TRUE</option>
+            <option>FALSE</option>
+        </select>
     </div>
 
     <div class="form-group">
         <label>Older Drive Involved</label>
         <ValidationMessage For="@(() => a.OLDER_DRIVER_INVOLVED)"></ValidationMessage>
-        <InputText class="form-control" @bind-Value="a.OLDER_DRIVER_INVOLVED"></InputText>
+        <select class="form-control selectpicker" @bind="a.OLDER_DRIVER_INVOLVED">
+            <option>--Select--</option>
+            <option>TRUE</option>
+            <option>FALSE</option>
+        </select>
     </div>
 
     <div class="form-group">
         <label>Night/Dark Conditions</label>
         <ValidationMessage For="@(() => a.NIGHT_DARK_CONDITION)"></ValidationMessage>
-        <InputText class="form-control" @bind-Value="a.NIGHT_DARK_CONDITION"></InputText>
+        <select class="form-control selectpicker" @bind="a.NIGHT_DARK_CONDITION">
+            <option>--Select--</option>
+            <option>TRUE</option>
+            <option>FALSE</option>
+        </select>
     </div>
 
     <div class="form-group">
         <label>Single Vehicle</label>
         <ValidationMessage For="@(() => a.SINGLE_VEHICLE)"></ValidationMessage>
-        <InputText class="form-control" @bind-Value="a.SINGLE_VEHICLE"></InputText>
+        <select class="form-control selectpicker" @bind="a.SINGLE_VEHICLE">
+            <option>--Select--</option>
+            <option>TRUE</option>
+            <option>FALSE</option>
+        </select>
     </div>
 
     <div class="form-group">
         <label>Distracted Driving</label>
         <ValidationMessage For="@(() => a.DISTRACTED_DRIVING)"></ValidationMessage>
-        <InputText class="form-control" @bind-Value="a.DISTRACTED_DRIVING"></InputText>
+        <select class="form-control selectpicker" @bind="a.DISTRACTED_DRIVING">
+            <option>--Select--</option>
+            <option>TRUE</option>
+            <option>FALSE</option>
+        </select>
     </div>
 
     <div class="form-group">
         <label>Drowsy Driving</label>
         <ValidationMessage For="@(() => a.DROWSY_DRIVING)"></ValidationMessage>
-        <InputText class="form-control" @bind-Value="a.DROWSY_DRIVING"></InputText>
+        <select class="form-control selectpicker" @bind="a.DROWSY_DRIVING">
+            <option>--Select--</option>
+            <option>TRUE</option>
+            <option>FALSE</option>
+        </select>
     </div>
 
     <div class="form-group">
         <label>Roadway Departure</label>
         <ValidationMessage For="@(() => a.ROADWAY_DEPARTURE)"></ValidationMessage>
-        <InputText class="form-control" @bind-Value="a.ROADWAY_DEPARTURE"></InputText>
+        <select class="form-control selectpicker" @bind="a.ROADWAY_DEPARTURE">
+            <option>--Select--</option>
+            <option>TRUE</option>
+            <option>FALSE</option>
+        </select>
     </div>
 
     <button type="submit" class="btn btn-@ThemeColor">Save</button>
     <NavLink class="btn btn-secondary" href="/admin/accidents">Cancel</NavLink>
-    
+
 
 </EditForm>
 
