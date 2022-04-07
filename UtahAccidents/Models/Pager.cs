@@ -10,6 +10,8 @@ namespace UtahAccidents.Models
         public IQueryable<Accident> Accidents { get; set; }
 
         public Pager Pager { get; set; }
+
+        //public query
     }
     
     public class Pager
