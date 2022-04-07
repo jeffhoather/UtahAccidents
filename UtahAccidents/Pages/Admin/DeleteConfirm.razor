@@ -1,0 +1,75 @@
+﻿@page "/admin/accidents/remove/{id:long}"
+@inherits OwningComponentBase<IAccidentsRepository>
+
+<div class="form-group">
+    <h1>Confirmation of Deletion</h1>
+    <h2>Are you sure you want to yeet the record with ID:@a.CRASH_ID?</h2>
+    <h3>This action cannot be undone</h3>
+</div>
+
+<div class="form-group">
+    <button class="btn btn-danger" @onclick="@(x => RemoveAccident(a))">Yeet This Record</button>
+    <NavLink class="btn btn-secondary" href="/admin/accidents">Go Back</NavLink>
+</div>
+
+@code {
+
+    [Parameter]
+    public long Id { get; set; } = 0;
+
+    public string ThemeColor => Id == 0 ? "primary" : "warning";
+    public string TitleText => Id == 0 ? "Create" : "Edit";
+
+    public Accident a { get; set; } = new Accident();
+
+    public IAccidentsRepository repo => Service;
+
+    protected override void OnParametersSet()
+    {
+        if (Id != 0)
+        {
+            a = repo.Accidents.FirstOrDefault(x => x.CRASH_ID == Id);
+        }
+
+    }
+
+    public void SaveAccident()
+    {
+        if (Id == 0)
+        {
+            a.CRASH_ID = (repo.Accidents.ToList().Capacity + 1);
+            repo.CreateAccident(a);
+        }
+        else
+        {
+            repo.SaveAccident(a);
+        }
+
+        NavManager.NavigateTo("/admin/accidents");
+    }
+
+    [Inject]
+    public NavigationManager NavManager { get; set; }
+
+    public async Task RemoveAccident(Accident a)
+    {
+        repo.DeleteAccident(a);
+        await UpdateData();
+
+        NavManager.NavigateTo("/admin/accidents");
+    }
+
+
+
+    public IEnumerable<Accident> AccidentData { get; set; }
+
+    protected async override Task OnInitializedAsync()
+    {
+        await UpdateData();
+    }
+
+    public async Task UpdateData()
+    {
+        AccidentData = await repo.Accidents.ToListAsync();
+    }
+}

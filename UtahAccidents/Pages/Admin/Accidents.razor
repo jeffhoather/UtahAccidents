@@ -5,6 +5,14 @@
 
 <NavLink class="btn btn-primary" href="/admin/accidents/create">Create</NavLink>
 
+
+<div>
+    <label class="text-bold">Search Crash by ID:</label>
+    @*<input value="@x" />
+    <NavLink class="btn btn-primary btn-sm" href="@GetDetailsUrl(x)">Test Routing</NavLink>*@
+</div>
+
+
 <table class="table table-sm table-striped table-bordered">
     <thead>
         <tr>
@@ -28,7 +36,7 @@
                     <td>@a.CITY</td>
                     <td>@a.MAIN_ROAD_NAME</td>
                     <td>@a.CRASH_SEVERITY_ID</td>
-                    
+
 
                     <td>
                         <NavLink class="btn btn-info btn-sm" href="@GetDetailsUrl(a.CRASH_ID)">Details</NavLink>
@@ -39,7 +47,8 @@
                     </td>
 
                     <td>
-                        <button class="btn btn-danger btn-sm" @onclick="@(x => RemoveAccident(a))">Yeet This Record</button>
+                        @*<button class="btn btn-danger btn-sm" @onclick="@(x => RemoveAccident(a))">Yeet This Record</button>*@
+                        <NavLink class="btn btn-danger btn-sm" href="@GetRemoveUrl(a.CRASH_ID)">Yeet This Record</NavLink>
                     </td>
 
                 </tr>
@@ -62,6 +71,8 @@
 
 @code {
 
+    public Accident accident { get; set; }
+
     public IAccidentsRepository repo => Service;
 
     public IEnumerable<Accident> AccidentData { get; set; }
@@ -77,11 +88,13 @@
     }
 
     int i = 0;
+    long x;
 
     public string GetDetailsUrl(long id) => $"/admin/accidents/details/{id}";
     public string GetEditUrl(long id) => $"/admin/accidents/edit/{id}";
+    public string GetRemoveUrl(long id) => $"/admin/accidents/remove/{id}";
 
-    public async Task RemoveAccident (Accident a)
+    public async Task RemoveAccident(Accident a)
     {
         repo.DeleteAccident(a);
         await UpdateData();

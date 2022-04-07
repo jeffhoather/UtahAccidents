@@ -69,12 +69,6 @@
     </div>
 
     <div class="form-group">
-        <label>Route</label>
-        <ValidationMessage For="@(() => a.ROUTE)"></ValidationMessage>
-        <InputText class="form-control" @bind-Value="a.ROUTE"></InputText>
-    </div>
-
-    <div class="form-group">
         <label>Severity</label>
         <ValidationMessage For="@(() => a.CRASH_SEVERITY_ID)"></ValidationMessage>
         <InputNumber class="form-control" @bind-Value="a.CRASH_SEVERITY_ID"></InputNumber>
@@ -83,7 +77,12 @@
     <div class="form-group">
         <label>Work Zone Related</label>
         <ValidationMessage For="@(() => a.WORK_ZONE_RELATED)"></ValidationMessage>
-        <InputText class="form-control" @bind-Value="a.WORK_ZONE_RELATED"></InputText>
+        <select class="form-control selectpicker" @bind="a.WORK_ZONE_RELATED">
+            <option>--Select--</option>
+            <option>TRUE</option>
+            <option>FALSE</option>
+        </select>
+        @*<InputText class="form-control" @bind-Value="a.WORK_ZONE_RELATED"></InputText>*@
     </div>
 
     <div class="form-group">
@@ -226,6 +225,7 @@
     {
         if (Id == 0)
         {
+            a.CRASH_ID = (repo.Accidents.ToList().Capacity + 1);
             repo.CreateAccident(a);
         }
         else

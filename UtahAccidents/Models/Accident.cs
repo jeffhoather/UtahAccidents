@@ -12,6 +12,8 @@ namespace UtahAccidents.Models
         [Required]
         public int CRASH_ID { get; set; }
         public DateTime CRASH_DATETIME { get; set; }
+        [Required]
+        [StringLength(10, ErrorMessage = "Route Name Too Long.")]
         public string ROUTE { get; set; }
         public double MILEPOINT { get; set; }
         public double LAT_UTM_Y { get; set; }
