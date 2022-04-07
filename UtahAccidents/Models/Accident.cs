@@ -10,10 +10,11 @@ namespace UtahAccidents.Models
     {
         [Key]
         [Required]
+        [Range(9999999,20000000, ErrorMessage = "Enter a Valid Crash ID")]
         public int CRASH_ID { get; set; }
         public DateTime CRASH_DATETIME { get; set; }
         [Required]
-        [StringLength(10, ErrorMessage = "Route Name Too Long.")]
+        [StringLength(20, ErrorMessage = "Route Name Too Long.")]
         public string ROUTE { get; set; }
         public double MILEPOINT { get; set; }
         public double LAT_UTM_Y { get; set; }
@@ -21,10 +22,10 @@ namespace UtahAccidents.Models
         public string MAIN_ROAD_NAME { get; set; }
         public string CITY { get; set; }
         public string COUNTY_NAME { get; set; }
-        public int CRASH_SEVERITY_ID { get; set; }
-
         [Required]
-        [StringLength(5, ErrorMessage = "Please Select True or False")]
+        [Range(1, 5, ErrorMessage = "Enter a Value between 1 - 5")]
+        public int CRASH_SEVERITY_ID { get; set; }
+        
         public string WORK_ZONE_RELATED { get; set; }
         public string PEDESTRIAN_INVOLVED { get; set; }
         public string BICYCLIST_INVOLVED { get; set; }

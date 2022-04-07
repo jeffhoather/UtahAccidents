@@ -15,16 +15,16 @@
     <DataAnnotationsValidator></DataAnnotationsValidator>
 
 
-    @*<div class="form-group"> -> To make Crash ID a field that can be entered, and we just give it a number limit
-        <label>Milepoint</label>
-        <ValidationMessage For="@(() => a.MILEPOINT)"></ValidationMessage>
-        <InputNumber class="form-control" @bind-Value="a.MILEPOINT"></InputNumber>
-    </div>*@
-
     <div class="form-group">
         <label>Crash ID</label>
-        <input class="form-control" disabled value="@a.CRASH_ID" />
+        <ValidationMessage For="@(() => a.CRASH_ID)"></ValidationMessage>
+        <InputNumber class="form-control" @bind-Value="a.CRASH_ID"></InputNumber>
     </div>
+
+    @*<div class="form-group">
+        <label>Crash ID</label>
+        <input class="form-control" disabled value="@a.CRASH_ID" />
+    </div>*@
 
     <div class="form-group">
         <label>Date&Time</label>
@@ -83,11 +83,17 @@
     <div class="form-group">
         <label>Work Zone Related</label>
         <ValidationMessage For="@(() => a.WORK_ZONE_RELATED)"></ValidationMessage>
-        <select class="form-control selectpicker" @bind="a.WORK_ZONE_RELATED">
+        <br />
+        <InputSelect id="WorkZoneRelated" @bind-Value="a.WORK_ZONE_RELATED">
+            <option value="">--Select--</option>
+            <option value="TRUE">TRUE</option>
+            <option value="FALSE">FALSE</option>
+        </InputSelect>
+        @*<select class="form-control selectpicker" @bind="a.WORK_ZONE_RELATED">
             <option>--Select--</option>
             <option>TRUE</option>
             <option>FALSE</option>
-        </select>
+        </select>*@
         @*<InputText class="form-control" @bind-Value="a.WORK_ZONE_RELATED"></InputText>*@
     </div>
 

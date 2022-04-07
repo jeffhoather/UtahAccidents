@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,7 +11,7 @@ namespace UtahAccidents.Controllers
 {
     public class HomeController : Controller
     {
-        
+        private AccidentsDbContext _context { get; set; }
         private IAccidentsRepository _repo { get; set; }
 
         public HomeController(IAccidentsRepository temp)
@@ -68,6 +69,18 @@ namespace UtahAccidents.Controllers
 
         }
 
+
+        public IActionResult Filter()
+        {
+            var county = _context.Accidents
+                .FromSqlRaw("SELECT DISTINCT COUNTY_NAME FROM accidents ORDER BY COUNTY_NAME")
+                .ToList();
+
+            //var blah = _repo.Accidents.AsQueryable();
+            //blah = blah.Where(x => x.COUNTY_NAME == )
+
+            return View(county);
+        }
 
 
         public IActionResult Privacy()

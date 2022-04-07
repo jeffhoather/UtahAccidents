@@ -1,0 +1,29 @@
+﻿@{
+    ViewData["Title"] = "Filter Crash Data";
+}
+
+@model Accident
+
+@*Filter by Crash ID*@
+<form method="post">
+    <label asp-for="CRASH_ID">Crash ID:</label>
+    <input asp-for="CRASH_ID" />
+
+    <button type="submit" class="btn btn-success btn-sm-float-end" asp-controller="Home" asp-action="filterview">Filter by Crash ID</button>
+</form>
+
+@*<form method="post">
+    <label asp-for="COUNTY_NAME">County:</label>
+    <select asp-for="COUNTY_NAME">
+        <option value="">Select a County</option>
+        @foreach (var a in county)
+        {
+            <option value="@a.COUNTY_NAME">@a.COUNTY_NAME</option>
+        }
+    </select>
+
+    <button type="submit" class="btn btn-success btn-sm-float-end" asp-controller="Home" asp-action="filterview">Filter by Team</button>
+</form>*@
+
+
+

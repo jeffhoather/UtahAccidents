@@ -6,23 +6,21 @@
 
 <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 
-<h1>2016, 2017, 2019 Utah Vehicle Accident Data</h1>
+
 
 <div>
-    <h3>Filter the Results</h3>
+    <div class="text-bold text-center">
+        <h1>2016, 2017, 2019 Utah Vehicle Accident Data</h1>
+        <h3>Filter the Results</h3>
+    </div>
+
+    <div class="btn btn-primary">
+        <a class="text-white" asp-controller="Home" asp-action="Filter">Filter by Team</a>
+    </div>
 
     <h4>Filter by County/City</h4>
-
     <h4>Filter by Severity</h4>
-
     <h4>Filter by Conditions</h4>
-
-    @*<form>
-            <label asp-for="">Crash ID</label>
-            <option>
-
-            </option>
-        </form>*@
 </div>
 
 <table class="table table-bordered table-striped">
