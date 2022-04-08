@@ -1,0 +1,50 @@
+﻿@{
+    Layout = null;
+}
+
+
+@model NewUserModel
+
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Utah Accidents Login</title>
+    <link href="~/lib/css/bootstrap.min.css" rel="stylesheet" />
+</head>
+
+<body>
+
+    <div class="bg-dark text-white p-2">
+        <span class="navbar-brand m-1-2">Utah Accidents</span>
+    </div>
+
+    <div class="m-1 p-1">
+
+        <div class="text-danger" asp-validation-summary="All"></div>
+
+        <form method="post" asp-controller="Account" asp-action="Register">
+
+            <div class="form-group">
+                <label asp-for="username">Username:</label>
+                <input asp-for="username" class="form-control" />
+            </div>
+
+            <div class="form-group">
+                <label asp-for="password">Password:</label>
+                <input asp-for="password" class="form-control" type="password" />
+            </div>
+
+            <div class="form-group">
+                <label asp-for="email">E-Mail:</label>
+                <input asp-for="email" class="form-control" />
+            </div>
+
+            <button class="btn btn-primary" type="submit">Submit</button>
+        </form>
+        <a class="text-uppercase" asp-controller="Account" asp-action="Register">Register Request</a>
+    </div>
+
+</body>
+
+</html>
