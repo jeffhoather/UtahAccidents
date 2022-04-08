@@ -12,6 +12,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using UtahAccidents.Models;
+using Microsoft.AspNetCore.HttpsPolicy;
+using UtahAccidents.Data;
 
 namespace UtahAccidents
 {
@@ -28,6 +30,12 @@ namespace UtahAccidents
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddDbContext<ApplicationDbContext>(options =>
+                options.UseSqlServer(
+                    Configuration.GetConnectionString("DefaultConnection")));
+            services.AddControllersWithViews();
+            services.AddRazorPages();
+
             services.Configure<CookiePolicyOptions>(options =>
             {
                 // This lambda determines whether user consent for non-essential cookies is needed for a given request.
