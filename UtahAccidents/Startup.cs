@@ -45,6 +45,8 @@ namespace UtahAccidents
 
             services.AddControllersWithViews();
 
+
+            // Imports our regression model
             services.AddSingleton<InferenceSession>(
                 new InferenceSession("wwwroot/regression.onnx")
             );
@@ -79,6 +81,8 @@ namespace UtahAccidents
             {
                 app.UseDeveloperExceptionPage();
             }
+
+            // Allows popup for cookie policy
             app.UseCookiePolicy();
 
             app.UseStaticFiles();
