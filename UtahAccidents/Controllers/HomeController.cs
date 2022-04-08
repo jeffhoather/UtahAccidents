@@ -106,6 +106,8 @@ namespace UtahAccidents.Controllers
         [HttpPost]
         public IActionResult ScorePredictor(AccidentInfoPredictor data)
         {
+
+            // function to run regression through user entered data
             var result = _session.Run(new List<NamedOnnxValue>
             {
                 NamedOnnxValue.CreateFromTensor("float_input", data.AsTensor())

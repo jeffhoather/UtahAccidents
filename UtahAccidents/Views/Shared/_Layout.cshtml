@@ -42,36 +42,32 @@
                             </li>
                         </ul>
                     </div>
+                    <ul class="navbar-nav">
+                        @if (SignInManager.IsSignedIn(User))
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Hello @User.Identity.Name!</a>
+                            </li>
+                            <li class="nav-item">
+                                <form class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+                                    <button type="submit" class="nav-link btn btn-link text-dark">Logout</button>
+                                </form>
+                            </li>
+                        }
+                        else
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-red" asp-controller="Account" asp-action="Login" style="color:black">Admin Tools</a>
+                            </li>
+                        }
+                    </ul>
                 </div>
-
             </nav>
         </header>
 
-                <ul class="navbar-nav">
-                    @if (SignInManager.IsSignedIn(User))
-                    {
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Hello @User.Identity.Name!</a>
-                        </li>
-                        <li class="nav-item">
-                            <form class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
-                                <button type="submit" class="nav-link btn btn-link text-dark">Logout</button>
-                            </form>
-                        </li>
-                    }
-                    else
-                    {
-                        <li class="nav-item">
-                            <a class="nav-link text-red" asp-controller="Account" asp-action="Login">Admin Tools</a> 
-                        </li>
-                    }
-                </ul>
-            </div>
-        </nav>
-    </header>
 
     <div class="container">
-        <partial name="_CookieConsentPartial" />
+        <partial name="_CookieConsentPartial" /><a href="C:\Users\Rental\source\repos\Auth_test_3\Auth_test_3\Web.config">C:\Users\Rental\source\repos\Auth_test_3\Auth_test_3\Web.config</a>
         <main role="main" class="pb-1">
             @RenderBody()
         </main>

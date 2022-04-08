@@ -4,10 +4,12 @@
 
 @model UtahAccidents.Models.AccidentInfoPredictor
 
-<div style="background-color:lightgrey">
-    <h1 style="color:navy"> Crash Severity Calculator</h1>
+@*Form for inputs of most important values in predicting crash severity. *@
 
-    <div class="form-group">
+<div style="background-color:lightgrey">
+    <h1 style="color:navy; padding-left:20px;"> Crash Severity Calculator</h1>
+
+    <div class="form-group" style="padding-left: 20px;">
         <form method="post">
             <div asp-validation-summary="All"></div>
 
@@ -259,7 +261,9 @@
 
             <br />
 
-            <button type="submit">Submit</button>
+            <div style="padding-bottom:10px;">
+                <button type="submit" >Submit</button>
+            </div>
 
         </form>
     </div>
