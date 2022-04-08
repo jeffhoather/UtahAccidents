@@ -4,13 +4,29 @@
 
 @model Accident
 
-@*Filter by Crash ID*@
+
 <form method="post">
-    <label asp-for="CRASH_ID">Crash ID:</label>
+    <label asp-for="COUNTY_NAME">County</label>
+    <select asp-for="COUNTY_NAME">
+        <option value="">Select a County</option>
+        @foreach (string c in ViewBag.County)
+        {
+            <option value="@c">@c</option>
+        }
+    </select>
+
+    <button type="submit" class="btn btn-success btn-sm-float-end" asp-controller="Home" asp-action="filterview">Filter by Team</button>
+</form>
+
+
+
+@*Filter by Crash ID*@
+@*<form method="post">
+    <label asp-for="CRASH_ID">Search by Crash ID:</label>
     <input asp-for="CRASH_ID" />
 
     <button type="submit" class="btn btn-success btn-sm-float-end" asp-controller="Home" asp-action="filterview">Filter by Crash ID</button>
-</form>
+</form>*@
 
 @*<form method="post">
     <label asp-for="COUNTY_NAME">County:</label>

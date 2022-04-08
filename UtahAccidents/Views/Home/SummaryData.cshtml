@@ -4,21 +4,29 @@
 
 @model IndexViewModel
 
+@*Specific stylesheet for pagination*@
 <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 
 
 
 <div>
     <div class="text-bold text-center">
-        <h1>Utah Vehicle Accident Data</h1>
-        <h3>Filter the Results</h3>
+        <h2>Utah Vehicle Accident Data</h2>
+        <h3>Filter Results</h3>
     </div>
 
     <div class="btn btn-primary">
-        <a class="text-white" asp-controller="Home" asp-action="Filter">Filter by Team</a>
+        <a class="text-white" asp-controller="Home" asp-action="Filter">Filter by County</a>
     </div>
 
-    <h4>Filter by County/City</h4>
+    @*<form method="post">
+        <label asp-for="Accidents.FirstOrDefault(x => x.CRASH_ID == id)">Search by Crash ID:</label>
+        <input asp-for="CRASH_ID" />
+
+        <button type="submit" class="btn btn-success btn-sm-float-end" asp-controller="Home" asp-action="filterview">Filter by Crash ID</button>
+    </form>*@
+
+    <h4>Filter by County</h4>
     <h4>Filter by Severity</h4>
     <h4>Filter by Conditions</h4>
 </div>
@@ -70,10 +78,7 @@
 
 </table>
 
-
-@*<div page-blah="@Model.PageInfo" page-action="SummaryData" page-class="btn"
-    page-classes-enabled="true"
-    page-class-normal="btn-outline-dark" page-class-selected="btn-primary"></div>*@
+@*Pagination Section*@
 
 <div class="container">
     <div class="col-md-8 col-md-offset-2">

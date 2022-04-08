@@ -83,17 +83,11 @@
     <div class="form-group">
         <label>Work Zone Related</label>
         <ValidationMessage For="@(() => a.WORK_ZONE_RELATED)"></ValidationMessage>
-        <br />
-        <InputSelect id="WorkZoneRelated" @bind-Value="a.WORK_ZONE_RELATED">
-            <option value="">--Select--</option>
-            <option value="TRUE">TRUE</option>
-            <option value="FALSE">FALSE</option>
-        </InputSelect>
-        @*<select class="form-control selectpicker" @bind="a.WORK_ZONE_RELATED">
+        <select class="form-control selectpicker" @bind="a.WORK_ZONE_RELATED">
             <option>--Select--</option>
             <option>TRUE</option>
             <option>FALSE</option>
-        </select>*@
+        </select>
         @*<InputText class="form-control" @bind-Value="a.WORK_ZONE_RELATED"></InputText>*@
     </div>
 
