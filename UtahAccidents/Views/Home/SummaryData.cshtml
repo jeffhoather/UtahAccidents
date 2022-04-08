@@ -12,23 +12,29 @@
 <div>
     <div class="text-bold text-center">
         <h2>Utah Vehicle Accident Data</h2>
-        <h3>Filter Results</h3>
     </div>
 
     <div class="btn btn-primary">
-        <a class="text-white" asp-controller="Home" asp-action="Filter">Filter by County</a>
+        <a class="text-white">Filter by County</a>
+    </div>
+    <div class="btn btn-primary">
+        <a class="text-white">Filter by City</a>
+    </div>
+    <div class="btn btn-primary">
+        <a class="text-white">Filter by Main Road</a>
+    </div>
+    <div class="btn btn-primary">
+        <a class="text-white">Filter by Crash Severity</a>
     </div>
 
     @*<form method="post">
-        <label asp-for="Accidents.FirstOrDefault(x => x.CRASH_ID == id)">Search by Crash ID:</label>
-        <input asp-for="CRASH_ID" />
+            <label asp-for="Accidents.FirstOrDefault(x => x.CRASH_ID == id)">Search by Crash ID:</label>
+            <input asp-for="CRASH_ID" />
 
-        <button type="submit" class="btn btn-success btn-sm-float-end" asp-controller="Home" asp-action="filterview">Filter by Crash ID</button>
-    </form>*@
+            <button type="submit" class="btn btn-success btn-sm-float-end" asp-controller="Home" asp-action="filterview">Filter by Crash ID</button>
+        </form>*@
 
-    <h4>Filter by County</h4>
-    <h4>Filter by Severity</h4>
-    <h4>Filter by Conditions</h4>
+
 </div>
 
 <table class="table table-bordered table-striped">
@@ -36,7 +42,7 @@
     <thead class="font-weight-bold">
         <tr class="text-center fw-bold align-items-md-center">
             <td>Crash ID</td>
-            <td>Date&Time</td>
+            <td>Date & Time</td>
             <td>Route</td>
             <td>Milepoint</td>
             <td>Latitutde</td>
