@@ -1,0 +1,19 @@
+﻿@{
+    ViewData["Title"] = "Score Results";
+}
+
+@model UtahAccidents.Models.CrashPrediction
+<h1 class="font-weight-bold text-decoration-underline">
+    Your Predicted Car Crash Severity Score is: <br />
+    @Model.CrashSeverity
+</h1>
+
+
+<h2 style="color:darkslateblue" class="text-decoration-underline">Crash Severity Rubric</h2>
+<h4 style="color:slateblue">
+    5: Fatal<br />
+    4: Suspected Serious Injury<br />
+    3: Suspeted Minor Injury<br />
+    2: Possible Injury<br />
+    1: No Injury <br />
+</h4>

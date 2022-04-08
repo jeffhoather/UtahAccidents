@@ -1,0 +1,266 @@
+﻿@{
+    ViewData["Title"] = "Score Predictor";
+}
+
+@model UtahAccidents.Models.AccidentInfoPredictor
+
+<div style="background-color:lightgrey">
+    <h1 style="color:navy"> Crash Severity Calculator</h1>
+
+    <div class="form-group">
+        <form method="post">
+            <div asp-validation-summary="All"></div>
+
+            <br />
+            <div style="color:darkslateblue" class="text-lg-start">
+                <h3>For the following, please enter circumstances surrounding the crash.</h3>
+                <h5>You should only select one value.</h5>
+            </div>
+            <br />
+
+            <label asp-for="WORK_ZONE_RELATED_True" style="font-size:larger" >In a Work Zone? </label> <br />
+            <select asp-for="WORK_ZONE_RELATED_True">
+                <option value="0">No</option>
+                <option value="1">Yes</option>
+            </select> <br /> 
+
+            <label asp-for="MOTORCYCLE_INVOLVED_True" style="font-size:larger">Motor Cycle Involved?</label><br />
+            <select asp-for="MOTORCYCLE_INVOLVED_True">
+                <option value="0">No</option>
+                <option value="1">Yes</option>
+            </select> <br /> 
+
+            <label asp-for="IMPROPER_RESTRAINT_True" style="font-size:larger"> Seatbelt Worn Incorrectly? </label><br />
+            <select asp-for="IMPROPER_RESTRAINT_True">
+                <option value="0">No</option>
+                <option value="1">Yes</option>
+            </select> <br />
+
+            <label asp-for="UNRESTRAINED_True" style="font-size:larger">Seatbelt Worn? </label><br />
+            <select asp-for="UNRESTRAINED_True">
+                <option value="0">No</option>
+                <option value="1">Yes</option>
+            </select> <br />
+
+            <label asp-for="DUI_True" style="font-size:larger">DUI?</label><br />
+            <select asp-for="DUI_True">
+                <option value="0">No</option>
+                <option value="1">Yes</option>
+            </select> <br />
+
+            <label asp-for="INTERSECTION_RELATED_True" style="font-size:larger">Occur in Intersection?</label><br />
+            <select asp-for="INTERSECTION_RELATED_True">
+                <option value="0">No</option>
+                <option value="1">Yes</option>
+            </select> <br />
+
+            <label asp-for="WILD_ANIMAL_RELATED_True" style="font-size:larger">Wild Animal Involved?</label><br />
+            <select asp-for="WILD_ANIMAL_RELATED_True">
+                <option value="0">No</option>
+                <option value="1">Yes</option>
+            </select> <br />
+
+            <label asp-for="OVERTURN_ROLLOVER_True" style="font-size:larger">Any Car Rollover?</label><br />
+            <select asp-for="OVERTURN_ROLLOVER_True">
+                <option value="0">No</option>
+                <option value="1">Yes</option>
+            </select> <br />
+
+            <label asp-for="COMMERCIAL_MOTOR_VEH_INVOLVED_True" style="font-size:larger">Commercial Vehicle Involved?</label><br />
+            <select asp-for="COMMERCIAL_MOTOR_VEH_INVOLVED_True">
+                <option value="0">No</option>
+                <option value="1">Yes</option>
+            </select> <br />
+
+            <label asp-for="TEENAGE_DRIVER_INVOLVED_True" style="font-size:larger">Teenager Driving?</label><br />
+            <select asp-for="TEENAGE_DRIVER_INVOLVED_True">
+                <option value="0">No</option>
+                <option value="1">Yes</option>
+            </select> <br />
+
+            <label asp-for="OLDER_DRIVER_INVOLVED_True" style="font-size:larger">Older Driving Driving?</label><br />
+            <select asp-for="OLDER_DRIVER_INVOLVED_True">
+                <option value="0">No</option>
+                <option value="1">Yes</option>
+            </select> <br />
+
+            <label asp-for="NIGHT_DARK_CONDITION_True" style="font-size:larger">Occur in Night Time?</label><br />
+            <select asp-for="NIGHT_DARK_CONDITION_True">
+                <option value="0">No</option>
+                <option value="1">Yes</option>
+            </select> <br />
+
+            <label asp-for="SINGLE_VEHICLE_True" style="font-size:larger">Only One Vehicle Involved?</label><br />
+            <select asp-for="SINGLE_VEHICLE_True">
+                <option value="0">No</option>
+                <option value="1">Yes</option>
+            </select> <br />
+
+            <label asp-for="DISTRACTED_DRIVING_True" style="font-size:larger">Driver Distracted?</label><br />
+            <select asp-for="DISTRACTED_DRIVING_True">
+                <option value="0">No</option>
+                <option value="1">Yes</option>
+            </select> <br />
+
+            <label asp-for="DROWSY_DRIVING_True" style="font-size:larger">Was Driver Tired?</label><br />
+            <select asp-for="DROWSY_DRIVING_True">
+                <option value="0">No</option>
+                <option value="1">Yes</option>
+            </select> <br />
+
+            <label asp-for="ROADWAY_DEPARTURE_True" style="font-size:larger">Roadway Departure?</label><br />
+            <select asp-for="ROADWAY_DEPARTURE_True">
+                <option value="0">No</option>
+                <option value="1">Yes</option>
+            </select> <br />
+
+            <br />
+            <div style="color: darkslateblue" class="text-lg-start">
+                <h3>For the following, please select the city it occured in. </h3>
+                <h5>You should only select one value.</h5>
+            </div>
+            <br />
+
+
+            <label asp-for="CITY_DRAPER" style="font-size:larger">Occur in Draper?</label><br />
+            <select asp-for="CITY_DRAPER">
+                <option value="0">No</option>
+                <option value="1">Yes</option>
+            </select> <br />
+
+            <label asp-for="CITY_LAYTON" style="font-size:larger">Occur in Layton?</label><br />
+            <select asp-for="CITY_LAYTON">
+                <option value="0">No</option>
+                <option value="1">Yes</option>
+            </select> <br />
+
+            <label asp-for="CITY_LEHI" style="font-size:larger">Occur in Lehi?</label><br />
+            <select asp-for="CITY_LEHI">
+                <option value="0">No</option>
+                <option value="1">Yes</option>
+            </select> <br />
+
+            <label asp-for="CITY_LOGAN" style="font-size:larger">Occur in Logan?</label><br />
+            <select asp-for="CITY_LOGAN">
+                <option value="0">No</option>
+                <option value="1">Yes</option>
+            </select> <br />
+
+            <label asp-for="CITY_MIDVALE" style="font-size:larger">Occur in Midvale?</label><br />
+            <select asp-for="CITY_MIDVALE">
+                <option value="0">No</option>
+                <option value="1">Yes</option>
+            </select> <br />
+
+            <label asp-for="CITY_MILLCREEK" style="font-size:larger">Occur in Millcreek?</label><br />
+            <select asp-for="CITY_MILLCREEK">
+                <option value="0">No</option>
+                <option value="1">Yes</option>
+            </select> <br />
+
+            <label asp-for="CITY_MURRAY" style="font-size:larger">Occur in Murray?</label><br />
+            <select asp-for="CITY_MURRAY">
+                <option value="0">No</option>
+                <option value="1">Yes</option>
+            </select> <br />
+
+            <label asp-for="CITY_OGDEN" style="font-size:larger">Occur in Ogden?</label><br />
+            <select asp-for="CITY_OGDEN">
+                <option value="0">No</option>
+                <option value="1">Yes</option>
+            </select> <br />
+
+            <label asp-for="CITY_OREM" style="font-size:larger">Occur in Orem?</label><br />
+            <select asp-for="CITY_OREM">
+                <option value="0">No</option>
+                <option value="1">Yes</option>
+            </select> <br />
+
+            <label asp-for="CITY_PROVO" style="font-size:larger">Occur in Provo?</label><br />
+            <select asp-for="CITY_PROVO">
+                <option value="0">No</option>
+                <option value="1">Yes</option>
+            </select> <br />
+
+            <label asp-for="CITY_SALT_LAKE_CITY" style="font-size:larger">Occur in Salt Lake City?</label><br />
+            <select asp-for="CITY_SALT_LAKE_CITY">
+                <option value="0">No</option>
+                <option value="1">Yes</option>
+            </select> <br />
+
+            <label asp-for="CITY_SANDY" style="font-size:larger">Occur in Sandy?</label><br />
+            <select asp-for="CITY_SANDY">
+                <option value="0">No</option>
+                <option value="1">Yes</option>
+            </select> <br />
+
+            <label asp-for="CITY_SOUTH_JORDAN" style="font-size:larger">Occur in South Jordan?</label><br />
+            <select asp-for="CITY_SOUTH_JORDAN">
+                <option value="0">No</option>
+                <option value="1">Yes</option>
+            </select> <br />
+
+            <label asp-for="CITY_SOUTH_SALT_LAKE" style="font-size:larger">Occur in South Salt Lake?</label><br />
+            <select asp-for="CITY_SOUTH_SALT_LAKE">
+                <option value="0">No</option>
+                <option value="1">Yes</option>
+            </select> <br />
+
+            <label asp-for="CITY_ST_GEORGE" style="font-size:larger">Occur in St. George?</label><br />
+            <select asp-for="CITY_ST_GEORGE">
+                <option value="0">No</option>
+                <option value="1">Yes</option>
+            </select> <br />
+
+            <label asp-for="CITY_TAYLORSVILLE" style="font-size:larger">Occur in Taylorsville?</label><br />
+            <select asp-for="CITY_TAYLORSVILLE">
+                <option value="0">No</option>
+                <option value="1">Yes</option>
+            </select> <br />
+
+            <label asp-for="CITY_WEST_JORDAN" style="font-size:larger">Occur in West Jordan?</label><br />
+            <select asp-for="CITY_WEST_JORDAN">
+                <option value="0">No</option>
+                <option value="1">Yes</option>
+            </select> <br />
+
+            <label asp-for="CITY_WEST_VALLEY_CITY" style="font-size:larger">Occur in West Valley City?</label><br />
+            <select asp-for="CITY_WEST_VALLEY_CITY">
+                <option value="0">No</option>
+                <option value="1">Yes</option>
+            </select> <br />
+
+            <label asp-for="CITY_OUTSIDE_CITY_LIMITS" style="font-size:larger">Occur in Outside City Limits?</label><br />
+            <select asp-for="CITY_OUTSIDE_CITY_LIMITS">
+                <option value="0">No</option>
+                <option value="1">Yes</option>
+            </select> <br />
+
+
+            <br />
+            <div style="color: darkslateblue" class="text-lg-start">
+                <h3>For the following, please select the road it occured in. </h3>
+                <h5>You should only select one value.</h5>
+            </div>
+            <br />
+
+
+            <label asp-for="MAIN_ROAD_NAME_I_15" style="font-size:larger">Occur on I-15?</label><br />
+            <select asp-for="MAIN_ROAD_NAME_I_15">
+                <option value="0">No</option>
+                <option value="1">Yes</option>
+            </select> <br />
+
+            <label asp-for="MAIN_ROAD_NAME_I_80" style="font-size:larger">Occur on I-80?</label><br />
+            <select asp-for="MAIN_ROAD_NAME_I_80">
+                <option value="0">No</option>
+                <option value="1">Yes</option>
+            </select> <br />
+
+            <br />
+
+            <button type="submit">Submit</button>
+
+        </form>
+    </div>
+</div>

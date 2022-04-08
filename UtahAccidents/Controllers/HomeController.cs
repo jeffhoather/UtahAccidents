@@ -1,22 +1,27 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using UtahAccidents.Models;
+using Microsoft.ML.OnnxRuntime;
+using Microsoft.ML.OnnxRuntime.Tensors;
 using UtahAccidents.Models.ViewModels;
 
 namespace UtahAccidents.Controllers
 {
     public class HomeController : Controller
     {
+        private InferenceSession _session;
         private AccidentsDbContext _context { get; set; }
         private IAccidentsRepository _repo { get; set; }
 
-        public HomeController(IAccidentsRepository temp)
+        public HomeController(IAccidentsRepository temp, InferenceSession session)
         {
             _repo = temp;
+            _session = session;
         }
 
         public IActionResult Index()
@@ -89,10 +94,23 @@ namespace UtahAccidents.Controllers
             return View();
         }
 
-        public IActionResult Calculator()
+        [HttpGet]
+        public IActionResult ScorePredictor()
         {
-
             return View();
+        }
+
+        [HttpPost]
+        public IActionResult ScorePredictor(AccidentInfoPredictor data)
+        {
+            var result = _session.Run(new List<NamedOnnxValue>
+            {
+                NamedOnnxValue.CreateFromTensor("float_input", data.AsTensor())
+            });
+            Tensor<float> score = result.First().AsTensor<float>();
+            var prediction = new CrashPrediction { CrashSeverity = score.First() };
+            result.Dispose();
+            return View("PredictorResults", prediction);
         }
         public IActionResult Insights()
         {
