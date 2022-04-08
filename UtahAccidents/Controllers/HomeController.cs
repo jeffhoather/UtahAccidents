@@ -18,10 +18,11 @@ namespace UtahAccidents.Controllers
         private AccidentsDbContext _context { get; set; }
         private IAccidentsRepository _repo { get; set; }
 
-        public HomeController(IAccidentsRepository temp, InferenceSession session)
+        public HomeController(IAccidentsRepository temp, InferenceSession session, AccidentsDbContext cont)
         {
             _repo = temp;
             _session = session;
+            _context = cont;
         }
 
         public IActionResult Index()
@@ -31,28 +32,6 @@ namespace UtahAccidents.Controllers
             return View(blah);
         }
 
-        //public IActionResult SummaryData(int pageNum = 1)
-        //{
-            
-        //    int pageSize = 50;
-
-        //    var x = new AccidentsViewModel
-        //    {
-        //        Accidents = _repo.Accidents
-        //        .OrderBy(a => a.CRASH_ID)
-        //        .Skip(pageSize * (pageNum - 1))
-        //        .Take(pageSize),
-
-        //        PageInfo = new PageInfo
-        //        {
-        //            TotalNumAccidents = _repo.Accidents.Count(),
-        //            AccidentsPerPage = pageSize,
-        //            CurrentPage = pageNum
-        //        }
-        //    };
-
-        //    return View(x);
-        //}
 
         [HttpGet]
         public IActionResult SummaryData(int? page)
@@ -77,16 +56,40 @@ namespace UtahAccidents.Controllers
 
         public IActionResult Filter()
         {
-            var county = _context.Accidents
-                .FromSqlRaw("SELECT DISTINCT COUNTY_NAME FROM accidents ORDER BY COUNTY_NAME")
+
+            ViewBag.County = _context.Accidents
+                .Where(x => x.COUNTY_NAME != "")
+                .Select(x => x.COUNTY_NAME)
+                .Distinct()
+                .OrderBy(x => x)
                 .ToList();
+
+            ViewBag.City = _context.Accidents
+                .Where(x => x.CITY != "")
+                .Select(x => x.CITY)
+                .Distinct()
+                .OrderBy(x => x)
+                .ToList();
+
+            //var county = _context.Accidents
+            //    .FromSqlRaw("SELECT DISTINCT COUNTY_NAME FROM accidents ORDER BY COUNTY_NAME")
+            //    .ToList();
 
             //var blah = _repo.Accidents.AsQueryable();
             //blah = blah.Where(x => x.COUNTY_NAME == )
 
-            return View(county);
+            return View();
         }
 
+
+        public IActionResult FilterView(string county)
+        {
+            List<Accident> accidents = _context.Accidents
+                .Where(x => x.COUNTY_NAME == county)
+                .ToList();
+
+            return View(accidents);
+        }
 
         public IActionResult Privacy()
         {

@@ -1,0 +1,89 @@
+﻿@{
+    ViewData["Title"] = "Filtered Results";
+}
+
+@model List<Accident>
+
+<div>
+    <a class="border alert" asp-controller="Home" asp-action="SummaryData">View All Results</a>
+    <br /><br /><br />
+    <div>
+
+    </div>
+    <a class="border alert" asp-controller="Home" asp-action="Filter">Choose Another County</a>
+    <br />
+</div>
+
+<table class="table-bordered table-striped">
+    <thead class="font-weight-bold">
+        <tr class="text-center">
+            <td>Crash ID</td>
+            <td>Date&Time</td>
+            <td>Route</td>
+            <td>Milepoint</td>
+            <td>Latitutde</td>
+            <td>Longitude</td>
+            <td>Main Road</td>
+            <td>City</td>
+            <td>County</td>
+            <td>Crash Severity (1-5)</td>
+            <td>Work Zone Related?</td>
+            <td>Pedestrian Involved?</td>
+            <td>Bicyclist Involved?</td>
+            <td>Motorcycle Involved?</td>
+            <td>Improper Restraint?</td>
+            <td>Unrestrained?</td>
+            <td>DUI?</td>
+            <td>Intersection Related?</td>
+            <td>Wild Animal?</td>
+            <td>Domestic Animal?</td>
+            <td>Overturn/Rollover?</td>
+            <td>Commercial Vehicle Involved?</td>
+            <td>Teenager Driver Involved?</td>
+            <td>Older Driver Involved?</td>
+            <td>Night/Dark Conditions?</td>
+            <td>Single Vehicle?</td>
+            <td>Distracted Driving?</td>
+            <td>Drowsy Driving?</td>
+            <td>Roadway Departure?</td>
+
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var a in Model)
+        {
+            <tr class="text-center">
+                <td>@a.CRASH_ID</td>
+                <td>@a.CRASH_DATETIME</td>
+                <td>@a.ROUTE</td>
+                <td>@a.MILEPOINT</td>
+                <td>@a.LAT_UTM_Y</td>
+                <td>@a.LONG_UTM_X</td>
+                <td>@a.MAIN_ROAD_NAME</td>
+                <td>@a.CITY</td>
+                <td>@a.COUNTY_NAME</td>
+                <td>@a.CRASH_SEVERITY_ID</td>
+                <td>@a.WORK_ZONE_RELATED</td>
+                <td>@a.PEDESTRIAN_INVOLVED</td>
+                <td>@a.BICYCLIST_INVOLVED</td>
+                <td>@a.MOTORCYCLE_INVOLVED</td>
+                <td>@a.IMPROPER_RESTRAINT</td>
+                <td>@a.UNRESTRAINED</td>
+                <td>@a.DUI</td>
+                <td>@a.INTERSECTION_RELATED</td>
+                <td>@a.WILD_ANIMAL_RELATED</td>
+                <td>@a.DOMESTIC_ANIMAL_RELATED</td>
+                <td>@a.OVERTURN_ROLLOVER</td>
+                <td>@a.COMMERCIAL_MOTOR_VEH_INVOLVED</td>
+                <td>@a.TEENAGE_DRIVER_INVOLVED</td>
+                <td>@a.OLDER_DRIVER_INVOLVED</td>
+                <td>@a.NIGHT_DARK_CONDITION</td>
+                <td>@a.SINGLE_VEHICLE</td>
+                <td>@a.DISTRACTED_DRIVING</td>
+                <td>@a.DROWSY_DRIVING</td>
+                <td>@a.ROADWAY_DEPARTURE</td> 
+            </tr>
+         }
+    </tbody>
+</table>
