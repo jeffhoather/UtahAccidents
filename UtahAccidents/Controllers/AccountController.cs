@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -8,6 +9,7 @@ using UtahAccidents.Models.ViewModels;
 
 namespace UtahAccidents.Controllers
 {
+    [Authorize(Roles ="Administrator")]
     public class AccountController : Controller
     {
         private UserManager<IdentityUser> userManager;
@@ -19,12 +21,14 @@ namespace UtahAccidents.Controllers
             signInManager = sim;
         }
 
+        [AllowAnonymous]
         [HttpGet]
         public IActionResult Login(string returnUrl)
         {
             return View(new LoginModel { ReturnUrl = returnUrl });
         }
 
+        [AllowAnonymous]
         [HttpPost]
         public async Task<IActionResult> Login (LoginModel loginModel)
         {
@@ -53,6 +57,11 @@ namespace UtahAccidents.Controllers
             await signInManager.SignOutAsync();
 
             return Redirect(returnUrl);
+        }
+
+        public IActionResult Register()
+        {
+            return View();
         }
 
     }
