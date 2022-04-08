@@ -52,6 +52,7 @@ namespace UtahAccidents.Controllers
             return View(loginModel);
         }
 
+        [AllowAnonymous]
         public async Task<RedirectResult> Logout (string returnUrl = "/")
         {
             await signInManager.SignOutAsync();
