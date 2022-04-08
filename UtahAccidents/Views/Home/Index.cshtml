@@ -63,7 +63,7 @@
                         <div class="carousel-caption text-left">
                             <h1>Accidents Database.</h1>
                             <p>Browse information that has been tracked and recorded for every car-related incident in the state of Utah in 2016, 2017, and 2019.</p>
-                            <p><a class="btn btn-lg btn-primary" href="#" role="button">Access The Information</a></p>
+                            <p><a class="btn btn-lg btn-primary" asp-controller="Home" asp-action="SummaryData" role="button">Access The Information</a></p>
                         </div>
                     </div>
                 </div>
@@ -73,7 +73,7 @@
                         <div class="carousel-caption">
                             <h1>How Safe Are You?</h1>
                             <p>Try out our Crash Severity Model. Find out how likely you are to be severly injured in a crash given different factors you can choose.</p>
-                            <p><a class="btn btn-lg btn-primary" href="#" role="button">Calculate Your Risk!</a></p>
+                            <p><a class="btn btn-lg btn-primary" asp-controller="Home" asp-action="ScorePredictor" role="button">Calculate Your Risk!</a></p>
                         </div>
                     </div>
                 </div>
@@ -83,7 +83,7 @@
                         <div class="carousel-caption text-right">
                             <h1>Analytics.</h1>
                             <p>Learn more about trends, patterns, and anomalies across all incidents. Let us help you stay safe.</p>
-                            <p><a class="btn btn-lg btn-primary" href="#" role="button">Discover Insights</a></p>
+                            <p><a class="btn btn-lg btn-primary" asp-controller="Home" asp-action="Insights" role="button">Discover Insights</a></p>
                         </div>
                     </div>
                 </div>
@@ -115,19 +115,19 @@
                     <img class="rounded-circle" src="https://w0.peakpx.com/wallpaper/464/826/HD-wallpaper-database-neon-icon-blue-background-neon-symbols-database-neon-icons-database-sign-computer-signs-database-icon-computer-icons.jpg" alt="Generic placeholder image" width="140" height="140">
                     <h2>Data</h2>
                     <p>View the accident information collected over a four year span from the Utah Department of Transportation. Includes data points on accident location, severity, and categorical attributes.</p>
-                    <p><a class="btn btn-secondary" href="#" role="button">View Data &raquo;</a></p>
+                    <p><a class="btn btn-secondary" asp-controller="Home" asp-action="SummaryData" role="button">View Data &raquo;</a></p>
                 </div><!-- /.col-lg-4 -->
                 <div class="col-lg-4">
                     <img class="rounded-circle" src="https://c4.wallpaperflare.com/wallpaper/854/214/410/accounting-black-budget-calculating-wallpaper-preview.jpg" alt="Generic placeholder image" width="140" height="140">
                     <h2>Prediction Analytics</h2>
                     <p>Look into the future and calculate the predicted severity of a potential accident. Customize your prediction with information about the location of a predicted incident and the drivers involved.</p>
-                    <p><a class="btn btn-secondary" href="#" role="button">View Predictions &raquo;</a></p>
+                    <p><a class="btn btn-secondary" asp-controller="Home" asp-action="ScorePredictor" role="button">View Predictions &raquo;</a></p>
                 </div><!-- /.col-lg-4 -->
                 <div class="col-lg-4">
                     <img class="rounded-circle" src="https://media.istockphoto.com/photos/analyst-working-with-business-analytics-and-data-management-system-on-picture-id1286642964?b=1&k=20&m=1286642964&s=170667a&w=0&h=doK0J0FhFqTF83bb5XggguZgbR-pF16ngrDcr7xG21o=" alt="Generic placeholder image" width="140" height="140">
                     <h2>Administrator Tools</h2>
                     <p>Authorized Users may create, edit, and delete incident records to ensure the highest standards of data quality. Following this link will prompt you to enter Login Credentials.</p>
-                    <p><a class="btn btn-secondary" href="#" role="button">View Admin &raquo;</a></p>
+                    <p><a class="btn btn-secondary" href="/admin" role="button">View Admin &raquo;</a></p>
                 </div><!-- /.col-lg-4 -->
             </div><!-- /.row -->
             <!-- START THE FEATURETTES -->
@@ -175,7 +175,7 @@
         <!-- FOOTER -->
         <footer class="container">
             <p class="float-right"><a href="#">Back to top</a></p>
-            <p>&copy; 2022 IS Jr. Core, Inc. &middot; <a asp-controller="Home" asp-action="Privacy">Privacy</a> &middot; <a href="#">Terms</a></p>
+            <p>&copy; 2022 IS Jr. Core, Inc. &middot; <a asp-controller="Home" asp-action="Privacy">Privacy</a> &middot; <a href="http://www.script-o-rama.com/movie_scripts/a1/bee-movie-script-transcript-seinfeld.html">Terms</a></p>
         </footer>
     </main>
 

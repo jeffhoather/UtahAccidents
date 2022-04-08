@@ -11,7 +11,7 @@ namespace UtahAccidents.Models
 
         public Pager Pager { get; set; }
 
-        //public query
+        public AccidentQuery AccidentQuery { get; set; }
     }
     
     public class Pager
