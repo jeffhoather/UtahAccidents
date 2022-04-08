@@ -6,6 +6,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.ML.OnnxRuntime;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -43,6 +44,11 @@ namespace UtahAccidents
             });
 
             services.AddControllersWithViews();
+
+            services.AddSingleton<InferenceSession>(
+                new InferenceSession("wwwroot/regression.onnx")
+            );
+
             services.AddDbContext<AccidentsDbContext>(options =>
            {
                options.UseMySql(Configuration["ConnectionStrings:AccidentsDbConnection"]);
@@ -62,6 +68,8 @@ namespace UtahAccidents
             services.AddRazorPages();
 
             services.AddServerSideBlazor();
+
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
